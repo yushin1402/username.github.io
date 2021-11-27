@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Navbar Sidebar - Fixed to Left or Right</title>
+    <link rel="stylesheet"
+          id="theme_link"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./css/navbar-fixed-right.min.css">
+    <link rel="stylesheet" href="./css/navbar-fixed-left.min.css">
+    <link rel="stylesheet" href="./css/docs.css">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="./css/docs.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+        pre {
+            display: inline-block;
+            background-color: black;
+            border-radius: 3px;
+            padding: 0.1em 0.2em;
+            color: royalblue;
+        }
+        img {
+            width: "10px";
+            height: "10px";
+        }
+        p{
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">SwaggerHubを利用したAPI仕様公開について</h1>
+        <br><br>
+        <h2 id="1">1.SwaggerHubとは</h2>
+        <p>
+            SwaggerHubはSwagger Editoer/UI/Codegenを具備した統合開発環境。クラウドサービスなので、課金することで環境構築なしで利用出来る。
+            <br>価格表は以下サイトを参照。API仕様公開だけに利用するのであれば、Freeプランで十分と思われる。
+            <br>
+            (全APIの仕様を1つのドキュメントにまとめる前提)
+            <br>[価格表]
+            <br><a href src="https://swagger.io/tools/swaggerhub/pricing/">https://swagger.io/tools/swaggerhub/pricing/</a>
+        </p>
+        <p>
+            アカウント作成は、以下のサイトの「SIGN UP」から行う。
+            <br>
+            <a href src="https://app.swaggerhub.com">https://app.swaggerhub.com/home</a>
+        </p>
+        <br><br>
+        <h2 id="2">2.使い方</h2>
+        <p>
+            アカウントを作成すると、以下のようなホーム画面が表示される。
+            <br>
+            <img class="img" src="./images/swaggerhub-1.png">
+            <br><br>
+        </p>
+        <p>
+            「Create New」>「Create New API」から新規にAPI仕様ページを作成出来る。
+            <br>
+            <img class="img" src="./images/swaggerhub-2.png">
+            <br><br>
+        </p>
+        <p>
+            作成するAPI仕様ページの設定を行う。「Auto Mock API」をONにすることで、スタブを自動生成するようにした。
+            <br>
+            <img class="img" src="./images/swaggerhub-3.png">
+            <br><br>
+        </p>
+        <p>
+            作成が完了すると、API仕様の編集画面が表示される。
+            <br>
+            PetstoreテンプレートAPI定義が記載されている。
+            <br>
+            <img class="img" src="./images/swaggerhub-4.png">
+            <br><br>
+        </p>
+        <p>
+            「Auto Mocl API」をONにしたため、/user/{username}の「Try it out」を押下後、パラメータを入力して
+             「Excute」を押下すると、モックAPIの呼び出しが出来る。
+            <br>
+            [実行画面]
+            <br>
+            <img class="img" src="./images/swaggerhub-5.png">
+            <br><br>
+            [レスポンス]
+            <br>
+            <img class="img" src="./images/swaggerhub-6.png">
+            <br><br>
+        </p>
+        <p>
+            画面左側のエディターで/user/{username}に対するレスポンス定義に<code>example:"sample"</code>を設定すると
+            、モックAPIが固定値を返却する。
+            <br>
+            <img class="img" src="./images/swaggerhub-7.png">
+            <br><br>
+            [レスポンス(固定値設定後)]
+            <br>
+            <img class="img" src="./images/swaggerhub-8.png">
+            <br><br>
+        </p>
+        <p>
+            RequestURLを確認すると、モックAPIは「virtserver.swaggerhub.com」にデプロイされていることが分かる。
+            <br>
+            <img class="img" src="./images/swaggerhub-9.png">
+            <br><br>
+        </p>
+        <p>
+            画面右上の「Export」> 「Documentation」からAPI仕様ページのダウンロードが出来る。
+            <br>
+            <img class="img" src="./images/swaggerhub-10.png">
+            <br><br>
+            dynamic htmlを開くにはexpress環境を利用するため、サーバサイドが必要となる。
+            <br>
+            html2で生成したページは<a href="./html/index.html">こちら</a>を参照。モックAPIの呼び出しは出来なくなっている。
+            <br>            
+        </p>
+        </div>
+</body>
+</html>
